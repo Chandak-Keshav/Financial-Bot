@@ -6,6 +6,7 @@ import DefaultPage from './components/pages/DefaultPage'
 import Buy from './components/BuySell/Buy';
 import LoginForm from "./components/loginForm/LoginForm.jsx";
 import RegisterPage from './components/Signup/RegisterPage.jsx';
+import ChartComponent from './components/chart/ChartComponent';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <Route path='/store' element={<DefaultPage />} />
                     <Route path='/account' element={<DefaultPage />} />
                     <Route path='/' element={<Buy />} />
+                    <Route path='chart' element={<ChartComponent />} />
             </Routes>
         </BrowserRouter>
     );
