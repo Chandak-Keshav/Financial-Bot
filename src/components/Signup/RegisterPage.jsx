@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import './Register.scss';
 
 
 const RegisterPage = () => {
     const [user, setUser] = useState({
         firstName: '',
         lastName: '',
+        broker_id: '',
+        email:'',
+        mobile:'',
         username: '',
-        password: ''
+        password: '',
+        confirmpassword : ''
     });
     const [submitted, setSubmitted] = useState(false);
 
@@ -26,42 +30,66 @@ const RegisterPage = () => {
 
     return (
         <div className="col-lg-8 offset-lg-2">
-            <h2>Register</h2>
+            <div className='topbar'>
+            <br></br>
+            <br></br>
+            <h1 className='ori'>Create an account</h1>
+            <br></br>
+            <h3 className='ori'>Let's get started</h3>
+            </div>
+            <span class="headline">Financial Bot</span>
             <form name="form" onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label>First Name</label>
-                    <input type="text" name="firstName" value={user.firstName} onChange={handleChange} className={'form-control' + (submitted && !user.firstName ? ' is-invalid' : '')} />
+                    <input type="text" name="firstName" value={user.firstName} onChange={handleChange} className='align' placeholder='First Name' />
                     {submitted && !user.firstName &&
                         <div className="invalid-feedback">First Name is required</div>
                     }
                 </div>
                 <div className="form-group">
-                    <label>Last Name</label>
-                    <input type="text" name="lastName" value={user.lastName} onChange={handleChange} className={'form-control' + (submitted && !user.lastName ? ' is-invalid' : '')} />
+                    
+                    <input type="text" name="lastName" value={user.lastName} onChange={handleChange} className='align' placeholder='Last Name'/>
                     {submitted && !user.lastName &&
                         <div className="invalid-feedback">Last Name is required</div>
                     }
                 </div>
                 <div className="form-group">
-                    <label>Username</label>
-                    <input type="text" name="username" value={user.username} onChange={handleChange} className={'form-control' + (submitted && !user.username ? ' is-invalid' : '')} />
-                    {submitted && !user.username &&
-                        <div className="invalid-feedback">Username is required</div>
+                    
+                    <input type="text" name="email" value={user.email} onChange={handleChange} className='align' placeholder='Email' />
+                    {submitted && !user.email &&
+                        <div className="invalid-feedback">Email is required</div>
                     }
                 </div>
                 <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" value={user.password} onChange={handleChange} className={'form-control' + (submitted && !user.password ? ' is-invalid' : '')} />
+                    <input type="text" name="mobile" value={user.mobile} onChange={handleChange} className='align' placeholder='Mobile Number'/>
+                    {submitted && !user.mobile &&
+                        <div className="invalid-feedback">Phone Number is required</div>
+                    }
+                </div>
+                <div className="form-group">
+                    
+                    <input type="text" name="broker_id" value={user.broker_id} onChange={handleChange} className='align' placeholder='Broker Id' />
+                    {submitted && !user.broker_id &&
+                        <div className="invalid-feedback">Broker Id is required</div>
+                    }
+                </div>
+                <div className="form-group">
+                    <input type="password" name="password" value={user.password} onChange={handleChange} className='align' placeholder='Password' />
                     {submitted && !user.password &&
                         <div className="invalid-feedback">Password is required</div>
                     }
                 </div>
                 <div className="form-group">
-                    <button className="btn btn-primary">
-                        {<span className="spinner-border spinner-border-sm mr-1"></span>}
-                        Register
+                    
+                    <input type="password" name="confirmpassword" value={user.confirmpassword} onChange={handleChange} className='align' placeholder='Confirm Password' />
+                    {submitted && !user.confirmpassword &&
+                        <div className="invalid-feedback">Password is required</div>
+                    }
+                </div>
+                <div className="form-group">
+                    <button className="button">
+                        {<span className="create"></span>}
+                        Create an account
                     </button>
-                    <Link to="/login" className="btn btn-link">Cancel</Link>
                 </div>
             </form>
         </div>

@@ -34,9 +34,16 @@ const LoginForm = props => {
   };
 
   return (
+    <div>
+    <div className='topbar'>
+            <br></br>
+            <br></br>
+            <h1 className='ori'>LOGIN</h1>
+            <br></br>
+    </div>
+    <span class="headline">Financial Bot</span>
     <form className={styles.form} onSubmit={onSubmitForm}>
       <div className={styles.formGroup}>
-        <label className={styles.formLabel}>Email</label>
         <input
           className={clsx(
             styles.formField,
@@ -48,13 +55,13 @@ const LoginForm = props => {
           value={form.email}
           onChange={onUpdateField}
           onBlur={onBlurField}
+          placeholder="Email"
         />
         {errors.email.dirty && errors.email.error ? (
           <p className={styles.formFieldErrorMessage}>{errors.email.message}</p>
         ) : null}
       </div>
       <div className={styles.formGroup}>
-        <label className={styles.formLabel}>Password</label>
         <input
           className={clsx(
             styles.formField,
@@ -68,6 +75,7 @@ const LoginForm = props => {
           value={form.password}
           onChange={onUpdateField}
           onBlur={onBlurField}
+          placeholder="Password"
         />
         {errors.password.dirty && errors.password.error ? (
           <p className={styles.formFieldErrorMessage}>
@@ -76,7 +84,6 @@ const LoginForm = props => {
         ) : null}
       </div>
       <div className={styles.formGroup}>
-        <label className={styles.formLabel}>Confirm Password</label>
         <input
           className={clsx(
             styles.formField,
@@ -90,6 +97,7 @@ const LoginForm = props => {
           value={form.confirmPassword}
           onChange={onUpdateField}
           onBlur={onBlurField}
+          placeholder="Confirm Password"
         />
         {errors.confirmPassword.dirty && errors.confirmPassword.error ? (
           <p className={styles.formFieldErrorMessage}>
@@ -98,11 +106,12 @@ const LoginForm = props => {
         ) : null}
       </div>
       <div className={styles.formActions}>
-        <button className={styles.formSubmitBtn} type="submit">
+        <button className="button" type="submit">
           Login
         </button>
       </div>
     </form>
+    </div>
   );
 };
 

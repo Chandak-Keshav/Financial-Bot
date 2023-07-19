@@ -11,7 +11,7 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route exact path='/' element={<AppLayout />}>
+                <Route path='/side' element={<AppLayout />} />
                     <Route path='/login' element={<LoginForm />} />
                     <Route path='/register' element={<RegisterPage />} />
                     <Route path='/analyze' element={<DefaultPage />} />
@@ -19,7 +19,6 @@ function App() {
                     <Route path='/store' element={<DefaultPage />} />
                     <Route path='/account' element={<DefaultPage />} />
                     <Route path='/' element={<Buy />} />
-                </Route>
             </Routes>
         </BrowserRouter>
     );
