@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Register.scss';
+import http from "../../http-common.js"
 
 
 const RegisterPage = () => {
@@ -26,6 +27,35 @@ const RegisterPage = () => {
         e.preventDefault();
 
         setSubmitted(true);
+    }
+
+    function createaccount(e){
+        let details = {
+            firstName: user.firstName,
+            lastName: user.lastName,
+            broker_id: user.broker_id,
+            transactions: [],
+            presentstocks: [],
+            email: user.email,
+            mobile: user.mobile,
+            username: user.username,
+            password: user.password,
+          };
+        
+          http.post('/User', details)
+            .then((response) => {
+              const res = response.data.status;
+              console.log(response.data.status);
+        
+              if (res !== "Succesful") {
+                this.setState({ errorPhrase: res, noError: false });
+              } else {
+                this.setState({ created: true });
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+            });
     }
 
     return (
@@ -86,7 +116,7 @@ const RegisterPage = () => {
                     }
                 </div>
                 <div className="form-group">
-                    <button className="button">
+                    <button className="button" onClick={createaccount}>
                         {<span className="create"></span>}
                         Create an account
                     </button>

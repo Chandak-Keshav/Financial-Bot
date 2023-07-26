@@ -3,15 +3,16 @@ import UserDAO from "../dao/userDAO.js";
 export default class UserCtrl {
     static async UserPutAPI(req, res,_) {
         let cursor = await UserDAO.signup({
-            name: req.body.name,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            broker_id: req.body.broker_id,
             email: req.body.email,
+            mobile: req.body.mobile,
+            username: req.body.username,
             password: req.body.password,
-            country: req.body.country,
-            interests: req.body.interests,
             transactions: [],
             presentstocks: [],
-            gmat: req.body.gmat,
-            mobile: req.body.mobile,
+            
         })
         res.json(cursor)
     }
