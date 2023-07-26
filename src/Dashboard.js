@@ -183,7 +183,7 @@ export default function Dashboard() {
                     p: 2,
                     display: 'flex',
                     flexDirection: 'column',
-                    height: 350,
+                    height: 400,
                   }}
                 >
                   <Deposits />
