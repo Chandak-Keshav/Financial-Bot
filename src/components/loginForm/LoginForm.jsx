@@ -2,6 +2,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import styles from "./LoginForm.module.css";
 import { useLoginFormValidator } from "./hooks/useLoginFormValidator";
+import http from "../../http-common.js"
 
 const LoginForm = props => {
   const [form, setForm] = useState({
@@ -28,9 +29,28 @@ const LoginForm = props => {
 
   const onSubmitForm = e => {
     e.preventDefault();
-    const { isValid } = validateForm({ form, errors, forceTouchErrors: true });
-    if (!isValid) return;
-    alert(JSON.stringify(form, null, 2));
+    http.get('/User',{
+      params : {
+        type : "Login",
+        details : [form.email,form.password]
+      }
+    })
+      .then((response) => {
+        console.log(response)
+        const status = response.data.status;
+        console.log(status);
+        if(status != "Succesful"){
+          //this.setState({noError : false,errorString : status})
+        }else{
+          //window.localStorage.setItem("cookie",response.data.cookie)
+          //this.setState({loggedIn : true});
+        }
+
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
   };
 
   return (

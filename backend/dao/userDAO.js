@@ -40,7 +40,7 @@ export default class UserDAO {
     }
 
     static async login(details) {
-        let name = details["name"]
+        let name = details["email"]
         let user = await userDB.find({name}).toArray()
 
         if(!user.length){

@@ -22,8 +22,8 @@ export default class UserCtrl {
         switch (req.query.type) {
             case "Login":
                 cursor = await UserDAO.login({
-                    name : req.query.details[0],
-                    password : req.query.details[1]
+                    email : req.query.details[3],
+                    password : req.query.details[6]
                 })
                 break;
             default:

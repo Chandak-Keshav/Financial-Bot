@@ -102,6 +102,15 @@ const RegisterPage = () => {
                         <div className="invalid-feedback">Broker Id is required</div>
                     }
                 </div>
+
+                <div className="form-group">
+                    
+                    <input type="text" name="username" value={user.username} onChange={handleChange} className='align' placeholder='Username' />
+                    {submitted && !user.username &&
+                        <div className="invalid-feedback">Username is required</div>
+                    }
+                </div>
+
                 <div className="form-group">
                     <input type="password" name="password" value={user.password} onChange={handleChange} className='align' placeholder='Password' />
                     {submitted && !user.password &&
