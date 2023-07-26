@@ -1,0 +1,67 @@
+.topbar{
+    position: relative;
+    background-color: #433E3E; 
+    height: 150px;
+    color: #FFFFFF;
+}
+.ori{
+    left: 800px;
+    display: inline;
+    position: relative;
+}
+.headline{
+    position: absolute;
+    align-items: flex-start;
+    font-size: xx-large;
+    left: 25px;
+    top: 248.62px;
+    transform: rotate(-89.87deg);
+}
+.form-group{ 
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 4px;
+}
+.control{ 
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 4px;
+}
+.align{ 
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 20px;
+    padding: 4px;
+    margin-left: 10px;
+    gap: 4%;
+}
+.button{
+    /* Frame 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 10px 30px;
+gap: 10px;
+
+position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+background: #69A0E6;
+border-radius: 20px;
+}
+.create{
+
+
+color: #000000;
+}
+
+
